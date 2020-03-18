@@ -16,8 +16,6 @@ const showCity = (input, list) => {
 
     if (input.value !== '') {
 
-
-
         const filterCity = city.filter((item) => {
             const itemToLowerCase = item.toLowerCase();
             return itemToLowerCase.includes(input.value.toLowerCase());
