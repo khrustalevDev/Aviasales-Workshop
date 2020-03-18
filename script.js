@@ -1,11 +1,11 @@
 const formSearch = document.querySelector('.form-search'),
-    inputCitiesFrom = formSearch.querySelector('.input__cities-from'),
+    inputCitiesFrom = formSearch.querySelector('.input__cities-from'), //можно использовать отдельную форму, а не весь документ
     dropdownCitiesTo = document.querySelector('.dropdown__cities-to'),
     inputDateDepart = document.querySelector('.input__date-depart'),
     dropdownCitiesFrom = document.querySelector('.dropdown__cities-from'),
     inputCitiesTo = document.querySelector('.input__cities-to');
 
-const city = ['Москва', 'Санкт-Петербург', 'Челябинск',
+const cities = ['Москва', 'Санкт-Петербург', 'Челябинск',
     'Минск', 'Самара', 'Вроцлав',
     'Одесса', 'Нижний Новгород', 'Калининград',
     'Ростов-на-Дону'
@@ -16,7 +16,7 @@ const showCity = (input, list) => {
 
     if (input.value !== '') {
 
-        const filterCity = city.filter((item) => {
+        const filterCity = cities.filter((item) => {
             const itemToLowerCase = item.toLowerCase();
             return itemToLowerCase.includes(input.value.toLowerCase());
         });
@@ -32,6 +32,10 @@ const showCity = (input, list) => {
     }
 };
 
+inputCitiesTo.addEventListener('input', () => {
+    showCity(inputCitiesTo, dropdownCitiesTo)
+});
+
 inputCitiesFrom.addEventListener('input', () => {
     showCity(inputCitiesFrom, dropdownCitiesFrom);
 });
@@ -44,7 +48,10 @@ dropdownCitiesFrom.addEventListener('click', (event) => {
     }
 });
 
-/* 1) Повторить все в уроке
-2) Написать функционал для поля "Куда" */
-
-//Начало дз
+dropdownCitiesTo.addEventListener('click', () => {
+    const target = event.target;
+    if (target.tagName.toLowerCase() === 'li') {
+        inputCitiesTo.toLowerCase() = target.textContent;
+        dropdownCitiesTo.textContent = '';
+    }
+});
