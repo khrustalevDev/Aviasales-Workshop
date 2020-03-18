@@ -46,3 +46,5 @@ dropdownCitiesFrom.addEventListener('click', (event) => {
 
 /* 1) Повторить все в уроке
 2) Написать функционал для поля "Куда" */
+
+//Начало дз
