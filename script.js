@@ -51,7 +51,7 @@ dropdownCitiesFrom.addEventListener('click', (event) => {
 dropdownCitiesTo.addEventListener('click', (event) => {
     const target = event.target;
     if (target.tagName.toLowerCase() === 'li') {
-        inputCitiesTo.toLowerCase() = target.textContent;
+        inputCitiesTo.value = target.textContent;
         dropdownCitiesTo.textContent = '';
     }
 });
